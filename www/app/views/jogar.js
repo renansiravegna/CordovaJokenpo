@@ -1,12 +1,13 @@
 define([
-	'text!app/templates/jogar.html'
-], function(jogarTemplate) {
+	'text!app/templates/jogar.html',
+	'app/model/jogo'
+], function(jogarTemplate, jogo) {
 	'use strict';
 
 	var jogarView = {};
 	var jogadaSelecionada;
 
-	jogarView.exibir = function(token) {
+	jogarView.exibir = function() {
 		document.getElementById('conteudo').innerHTML = jogarTemplate;
 		registrarEventos();
 	};
@@ -26,19 +27,21 @@ define([
 
 		var jogadas = document.querySelectorAll('li');
 
-		for (var index = 0; index < jogadas.length; index++) {
-			jogadas[index].style.border = "";
-		}
+		for (var index = 0; index < jogadas.length; index++)
+			jogadas[index].style.border = '';
 
-		this.style.border = "1px solid blue";
+		this.style.border = '1px solid blue';
+		jogo.selecionarJogada(this.getAttribute('data-jogada'));
 	}
 
 	function confirmarJogada() {
-		console.log(jogadaSelecionada);
-		// Emitir evento para o socket
-
-		require(['app/views/espera'], function(esperaView) {
+		require([
+			'app/views/espera',
+			'app/views/resultado'
+		], function(esperaView, resultadoView) {
 			esperaView.exibir();
+
+			jogo.jogar(resultadoView.exibir);
 		});
 	}
 

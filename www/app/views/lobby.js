@@ -19,14 +19,21 @@ define([
 	};
 
 	function registrarEventos() {
-		var jogadores = document.querySelectorAll('li');
+		document.querySelector('ul').addEventListener('click', function(evento) {
+			if (evento.target && evento.target.nodeName == "LI")
+				selecionarAdversario.apply(evento.target, []);
+		});
 
-		for (var index = 0; index < jogadores.length; index++)
-			jogadores[index].addEventListener('click', jogar);
-	};
+		document.querySelector('button[data-js="atualizar"]').addEventListener('click', function() {
+			lobbyView.exibir();
+		});
+	}
 
-	function jogar() {
-		var token = this.innerHTML;
+	function selecionarAdversario() {
+		var nome = this.innerHTML;
+		var token = this.getAttribute('data-token');
+
+		jogo.selecionarAdversario(nome, token);
 
 		require(['app/views/jogar'], function(jogarView) {
 			jogarView.exibir(token);

@@ -6,20 +6,20 @@ define([
 
 	var resultadoView = {};
 
-	resultadoView.exibir = function() {
+	resultadoView.exibir = function(resultado) {
 		var template = Handlebars.compile(resultadoTemplate);
-		document.getElementById('conteudo').innerHTML = template('Renan');
+		document.getElementById('conteudo').innerHTML = template(resultado.jogadaVencedora);
 
 		registrarEventos();
 	};
 
 	function registrarEventos() {
-		document.querySelector('button').addEventListener('click', reiniciar);
+		document.querySelector('button[data-js="jogar-novamente"]').addEventListener('click', jogarNovamente);
 	}
 
-	function reiniciar() {
-		require(['app/views/lobby'], function(lobbyView) {
-			lobbyView.exibir();
+	function jogarNovamente() {
+		require(['app/views/jogar'], function(jogarView) {
+			jogarView.exibir();
 		});
 	}
 

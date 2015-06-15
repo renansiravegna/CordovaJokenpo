@@ -11,5 +11,20 @@ define([
 		socket.escutar('entrada-registrada', callback);
 	};
 
+	jogo.selecionarAdversario = function(nome, token) {
+		jogo.nomeDoAdversario = nome;
+		jogo.tokenDoAdversario = token;
+	};
+
+	jogo.selecionarJogada = function(jogada) {
+		jogo.minhaJogada = jogada;
+	};
+
+	jogo.jogar = function(callback) {
+		var jogada = { tokenDoAdversario: jogo.tokenDoAdversario, jogada: jogo.minhaJogada };
+		socket.escutar('jogadaVencedora', callback);
+		socket.emitir('jogada', jogada);
+	};
+
 	return jogo;
 });
