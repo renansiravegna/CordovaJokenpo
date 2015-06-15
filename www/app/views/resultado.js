@@ -1,6 +1,9 @@
 define([
+	'handlebars',
 	'text!app/templates/resultado.html'
-], function(resultadoTemplate) {
+], function(Handlebars, resultadoTemplate) {
+	'use strict';
+
 	var resultadoView = {};
 
 	resultadoView.exibir = function() {
@@ -15,8 +18,8 @@ define([
 	}
 
 	function reiniciar() {
-		require(['app/views/listaDeJogadores'], function(listaDeJogadoresView) {
-			listaDeJogadoresView.exibir();
+		require(['app/views/lobby'], function(lobbyView) {
+			lobbyView.exibir();
 		});
 	}
 

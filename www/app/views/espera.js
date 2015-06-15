@@ -1,6 +1,9 @@
 define([
+	'handlebars',
 	'text!app/templates/espera.html'
-], function(esperaTemplate) {
+], function(Handlebars, esperaTemplate) {
+	'use strict';
+
 	var esperaView = {};
 
 	esperaView.exibir = function() {

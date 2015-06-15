@@ -1,6 +1,8 @@
 define([
 	'text!app/templates/entrar.html',
 ], function(entrarTemplate, listaDeJogadores) {
+	'use strict';
+
 	var entrarView = {};
 
 	entrarView.exibir = function() {
@@ -13,9 +15,15 @@ define([
 	}
 
 	function enviarNome() {
-		require(['app/views/lobby'], function(lobbyView) {
-			var nome = document.getElementById('apelido').value;
-			lobbyView.exibir(nome);
+		require([
+			'app/model/jogo',
+			'app/views/lobby'
+		], function(jogo, lobbyView) {
+			var apelido = document.getElementById('apelido').value;
+
+			jogo.entrar(apelido, function() {
+				lobbyView.exibir();	
+			});			
 		});
 	}
 

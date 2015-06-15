@@ -1,6 +1,8 @@
 define([
 	'text!app/templates/jogar.html'
 ], function(jogarTemplate) {
+	'use strict';
+
 	var jogarView = {};
 	var jogadaSelecionada;
 

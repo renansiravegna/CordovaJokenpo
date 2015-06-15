@@ -1,12 +1,14 @@
 define([
 	'handlebars',
-	'app/model/consultaDeJogadores',
+	'app/model/jogo',
 	'text!app/templates/lobby.html'
-], function(Handlebars, consultaDeJogadores, lobbyTemplate) {
+], function(Handlebars, jogo, lobbyTemplate) {
+	'use strict';
+
 	var lobbyView = {};
 
 	lobbyView.exibir = function() {
-		var dados = consultaDeJogadores.obterTodos();
+		var dados = jogo.obterJogadores();
 		var template = Handlebars.compile(lobbyTemplate);
 
 		document.getElementById('conteudo').innerHTML = template(dados);
