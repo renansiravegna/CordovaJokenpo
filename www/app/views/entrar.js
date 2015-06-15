@@ -22,8 +22,9 @@ define([
 		], function(jogo, lobbyView) {
 			var apelido = document.getElementById('apelido').value;
 
-			jogo.entrar(apelido);
-			lobbyView.exibir();
+			jogo.entrar(apelido, function() {
+				lobbyView.exibir();
+			});
 		});
 	}
 

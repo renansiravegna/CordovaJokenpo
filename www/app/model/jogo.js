@@ -6,8 +6,9 @@ define([
 
 	var jogo = {};
 
-	jogo.entrar = function(apelido) {
+	jogo.entrar = function(apelido, callback) {
 		socket.emitir('entrar', apelido);
+		socket.escutar('entrada-registrada', callback);
 	};
 
 	return jogo;
