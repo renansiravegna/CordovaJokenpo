@@ -5,6 +5,7 @@ app.configurar = function() {
 		baseUrl: '',
 
 		paths: {
+			'ajax': 'app/helpers/ajax',
 			'text': 'app/lib/requirejs-text/text',
 			'handlebars': 'app/lib/handlebars/handlebars'
 		}
