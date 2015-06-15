@@ -7,11 +7,10 @@ define([
 
 	var lobbyView = {};
 
-	lobbyView.exibir = function() {
-		var dados = jogo.obterJogadores();
+	lobbyView.exibir = function(jogadores) {
 		var template = Handlebars.compile(lobbyTemplate);
 
-		document.getElementById('conteudo').innerHTML = template(dados);
+		document.getElementById('conteudo').innerHTML = template(jogadores);
 
 		registrarEventos();
 	};
