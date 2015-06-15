@@ -1,6 +1,5 @@
 define([
 	'text!app/templates/entrar.html',
-	'app/views/listaDeJogadores'
 ], function(entrarTemplate, listaDeJogadores) {
 	var entrarView = {};
 
@@ -10,12 +9,14 @@ define([
 	};
 
 	function registrarEventos() {
-		document.querySelector('#botao').addEventListener('click', enviarNome, false);
+		document.querySelector('button[data-js="entrar"]').addEventListener('click', enviarNome, false);
 	}
 
 	function enviarNome() {
-		var nome = document.getElementById('nomeDoJogador').value;		
-		listaDeJogadores.exibir(nome);
+		require(['app/views/lobby'], function(lobbyView) {
+			var nome = document.getElementById('apelido').value;
+			lobbyView.exibir(nome);
+		});
 	}
 
 	return entrarView;
