@@ -1,0 +1,28 @@
+{
+  "name": "cordovaJokenpo",
+  "version": "1.0.0",
+  "authors": [
+    "Renan Siravegna <renan.siravegna@gmail.com>"
+  ],
+  "description": "Multiplayer Jokenpo",
+  "main": "www/app/app.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "jokenpo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.18",
+    "handlebars": "~3.0.3",
+    "requirejs-text": "~2.0.14"
+  }
+}
