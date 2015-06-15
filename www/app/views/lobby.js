@@ -1,7 +1,8 @@
 define([
+	'handlebars',
 	'app/model/consultaDeJogadores',
 	'text!app/templates/lobby.html'
-], function(consultaDeJogadores, lobbyTemplate) {
+], function(Handlebars, consultaDeJogadores, lobbyTemplate) {
 	var lobbyView = {};
 
 	lobbyView.exibir = function() {

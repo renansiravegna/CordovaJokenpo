@@ -5,7 +5,8 @@ app.configurar = function() {
 		baseUrl: '',
 
 		paths: {
-			'text': 'app/lib/requirejs-text/text'			
+			'text': 'app/lib/requirejs-text/text',
+			'handlebars': 'app/lib/handlebars/handlebars'
 		}
 	};
 
