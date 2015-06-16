@@ -1,0 +1,26 @@
+{
+  "name": "CordovaJokenpo",
+  "version": "1.0.0",
+  "description": "Jokenpo multiplayer utilizando Cordova",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renansiravegna/CordovaJokenpo.git"
+  },
+  "keywords": [
+    "jokenpo",
+    "multiplayer"
+  ],
+  "author": "Renan Siravegna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renansiravegna/CordovaJokenpo/issues"
+  },
+  "homepage": "https://github.com/renansiravegna/CordovaJokenpo",
+  "devDependencies": {
+    "browser-sync": "^2.7.10",
+    "gulp": "^3.9.0"
+  }
+}

@@ -17,7 +17,6 @@ define(function() {
 			socketManager.connect();
 		}
 
-		console.log(nomeDoEvento);
 		socketManager.on(nomeDoEvento, callback);
 	}
 

@@ -22,4 +22,7 @@ app.iniciar = function() {
 	});
 };
 
-document.addEventListener('deviceready', app.iniciar, false);
+if (!window.cordova)
+	app.iniciar();
+else
+	document.addEventListener('deviceready', app.iniciar, false);
