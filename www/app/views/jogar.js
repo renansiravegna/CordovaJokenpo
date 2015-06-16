@@ -40,7 +40,6 @@ define([
 			'app/views/resultado'
 		], function(esperaView, resultadoView) {
 			esperaView.exibir();
-
 			jogo.jogar(resultadoView.exibir);
 		});
 	}

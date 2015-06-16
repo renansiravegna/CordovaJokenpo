@@ -10,7 +10,7 @@ define([
 
 	esperaView.exibir = function() {
 		var template = Handlebars.compile(esperaTemplate);
-		document.getElementById('conteudo').innerHTML = template(jogo.nomeDoAdversario);
+		document.getElementById('conteudo').innerHTML = template(jogo);
 		atribuirEventos();
 	};
 

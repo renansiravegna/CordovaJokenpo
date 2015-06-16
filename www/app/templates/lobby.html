@@ -1,8 +1,11 @@
 <h1>Jogadores</h1>
 
-<ul>
+<ul id="jogadores">
 	{{#.}}
-		<li data-token="{{this.id}}">{{this.nome}}</li>
+	<li data-token="{{this.id}}">
+		<span>{{this.nome}}</span>
+		<span class="icon-circle-right flutuando-a-direita"></span>
+	</li>
 	{{/.}}
 </ul>
 

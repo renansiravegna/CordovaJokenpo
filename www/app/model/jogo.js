@@ -7,6 +7,7 @@ define([
 	var jogo = {};
 
 	jogo.entrar = function(apelido, callback) {
+		jogo.meuApelido = apelido;
 		socket.emitir('entrar', apelido);
 		socket.escutar('entrada-registrada', callback);
 	};
