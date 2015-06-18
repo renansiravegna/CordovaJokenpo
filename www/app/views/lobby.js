@@ -31,7 +31,7 @@ define([
 	}
 
 	function selecionarAdversario() {
-		var nome = this.innerHTML;
+		var nome = this.getAttribute('data-nome');
 		var token = this.getAttribute('data-token');
 
 		jogo.selecionarAdversario(nome, token);

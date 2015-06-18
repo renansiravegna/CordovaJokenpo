@@ -13,7 +13,7 @@ define([
 	};
 
 	function registrarEventos() {
-		var jogadas = document.querySelectorAll('li');
+		var jogadas = document.querySelectorAll('div#jogadas div');
 
 		for (var index = 0; index < jogadas.length; index++) {
 			jogadas[index].addEventListener('click', selecionar);
@@ -25,12 +25,12 @@ define([
 	function selecionar() {
 		jogadaSelecionada = this;
 
-		var jogadas = document.querySelectorAll('li');
+		var jogadas = document.querySelectorAll('div#jogadas div');
 
 		for (var index = 0; index < jogadas.length; index++)
-			jogadas[index].style.border = '';
+			jogadas[index].className = '';
 
-		this.style.border = '1px solid blue';
+		this.className = 'selecionado';
 		jogo.selecionarJogada(this.getAttribute('data-jogada'));
 	}
 

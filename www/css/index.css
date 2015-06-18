@@ -4,6 +4,7 @@ html, body{
 
 body {
     font-family: "OpenSans-light";
+    background-color: rgb(225, 201, 201);
 }
 
 section {
@@ -19,18 +20,22 @@ section {
     text-transform: uppercase;
 }
 
+.selecionado {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+div#jogadas {
+    margin-bottom: 15px;
+}
+
+div#jogadas div {
+    width: 150px;
+    display: inline-block;
+}
+
 ul {
     padding: 0;
     width: 100%;
-}
-
-ul#jogadores {
-    column-count: 2;
-    column-gap: 20px;
-    -moz-column-count: 2;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
 }
 
 ul#jogadas {
