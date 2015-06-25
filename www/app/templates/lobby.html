@@ -2,11 +2,16 @@
 
 <ul id="jogadores">
 	{{#.}}
-	<li data-nome="{{this.nome}}" data-token="{{this.id}}">
-		<span>{{this.nome}}</span>
+	<li data-token="{{this.id}}" data-apelido="{{this.apelido}}">
+		<span>{{this.apelido}}</span>
 		<span class="icon-circle-right flutuando-a-direita"></span>
 	</li>
 	{{/.}}
 </ul>
 
-<button data-js="atualizar" class="botao grande largo fonte-grande">Atualizar</button>
+<p>
+	<button data-js="atualizar" class="botao grande largo fonte-grande">Atualizar</button>
+</p>
+<p>
+	<button data-js="sair" class="botao grande largo fonte-grande">Sair</button>
+</p>

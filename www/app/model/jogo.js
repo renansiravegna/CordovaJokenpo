@@ -12,8 +12,8 @@ define([
 		socket.escutar('entrada-registrada', callback);
 	};
 
-	jogo.selecionarAdversario = function(nome, token) {
-		jogo.nomeDoAdversario = nome;
+	jogo.desafiarJogador = function(token, apelido) {
+		jogo.apelidoDoAdversario = apelido;
 		jogo.tokenDoAdversario = token;
 	};
 

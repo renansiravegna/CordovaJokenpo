@@ -3,7 +3,7 @@ define(function() {
 
 	configuracoes.host = 'localhost';
 
-	configuracoes.porta = 3300;
+	configuracoes.porta = 3330;
 
 	configuracoes.url = 'http://' + configuracoes.host + ':' + configuracoes.porta + '/';
 

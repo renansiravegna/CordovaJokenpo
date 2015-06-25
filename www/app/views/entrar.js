@@ -6,6 +6,10 @@ define([
 
 	var entrarView = {};
 
+	socket.escutar('error', function(a, b, c) {
+		console.log(a);
+	});
+
 	entrarView.exibir = function() {
 		document.getElementById('conteudo').innerHTML = entrarTemplate;
 		registrarEventos();
