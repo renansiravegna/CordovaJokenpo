@@ -20,9 +20,8 @@ app.iniciar = function() {
 	app.configurar();
 
 	require([
-		'router',
-		'app/views/entrar'
-	], function(router, entrarView) {
+		'router'
+	], function(router) {
 		router.configure();
 		router.navigateTo('/join');
 	});

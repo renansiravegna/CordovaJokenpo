@@ -10,13 +10,13 @@ define([
 	router.configure = function() {
 		var routes = {
 			'/join': function() {
-				require(['app/views/entrar'], function(joinView) {
+				require(['app/views/joinView'], function(joinView) {
 					changeView(joinView);
 				});
 			},
 
 			'/lobby': function() {
-				require(['app/views/lobby'], function(lobbyView) {
+				require(['app/views/lobbyView'], function(lobbyView) {
 					changeView(lobbyView);
 				});
 			}
