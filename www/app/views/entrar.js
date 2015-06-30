@@ -16,7 +16,8 @@ define([
 	};
 
 	function registrarEventos() {
-		document.querySelector('button[data-js="entrar"]').addEventListener('click', enviarNome, false);
+		document.querySelector('button[data-js="entrar"]').addEventListener('click', enviarNome);
+		document.querySelector('button[data-js="entrar"]').removeEventListener('click', enviarNome);
 	}
 
 	function enviarNome() {

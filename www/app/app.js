@@ -7,7 +7,9 @@ app.configurar = function() {
 		paths: {
 			'ajax': 'app/helpers/ajax',
 			'text': 'app/lib/requirejs-text/text',
-			'handlebars': 'app/lib/handlebars/handlebars'
+			'handlebars': 'app/lib/handlebars/handlebars',
+			'director': 'app/lib/director/director',
+			'router': 'app/router'
 		}
 	};
 
@@ -17,7 +19,11 @@ app.configurar = function() {
 app.iniciar = function() {
 	app.configurar();
 
-	require(['app/views/entrar'], function(entrarView) {
+	require([
+		'router',
+		'app/views/entrar'
+	], function(router, entrarView) {
+		router.configure();
 		entrarView.exibir();
 	});
 };
