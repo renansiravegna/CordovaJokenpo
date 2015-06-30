@@ -13,7 +13,6 @@ define([
 		ajax.getJSON(configuracoes.url + 'api/jogadoresOnline', function(jogadores) {
 			var template = Handlebars.compile(lobbyTemplate);
 
-			console.log(jogadores);
 			document.getElementById('conteudo').innerHTML = template(jogadores);
 
 			registrarEventos();
@@ -35,7 +34,7 @@ define([
 				'app/model/socket',
 				'app/views/entrar'
 			], function(socket, entrarView) {
-				socket.emitir('disconnect');
+				socket.emitir('sair');
 				entrarView.exibir();
 			});
 		});
