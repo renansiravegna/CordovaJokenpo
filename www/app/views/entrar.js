@@ -10,25 +10,24 @@ define([
 		console.log(a);
 	});
 
-	entrarView.exibir = function() {
+	entrarView.show = function() {
 		document.getElementById('conteudo').innerHTML = entrarTemplate;
-		registrarEventos();
+		document.querySelector('button[data-js="entrar"]').addEventListener('click', enviarNome);
 	};
 
-	function registrarEventos() {
-		document.querySelector('button[data-js="entrar"]').addEventListener('click', enviarNome);
+	entrarView.hide = function() {
 		document.querySelector('button[data-js="entrar"]').removeEventListener('click', enviarNome);
-	}
+	};
 
 	function enviarNome() {
 		require([
 			'app/model/jogo',
-			'app/views/lobby'
-		], function(jogo, lobbyView) {
+			'router'
+		], function(jogo, router) {
 			var apelido = document.getElementById('apelido').value;
 
 			jogo.entrar(apelido, function() {
-				lobbyView.exibir();
+				router.navigateTo('/lobby');
 			});
 		});
 	}

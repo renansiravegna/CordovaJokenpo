@@ -8,7 +8,7 @@ app.configurar = function() {
 			'ajax': 'app/helpers/ajax',
 			'text': 'app/lib/requirejs-text/text',
 			'handlebars': 'app/lib/handlebars/handlebars',
-			'director': 'app/lib/director/director',
+			'director': 'app/lib/director/build/director',
 			'router': 'app/router'
 		}
 	};
@@ -24,7 +24,7 @@ app.iniciar = function() {
 		'app/views/entrar'
 	], function(router, entrarView) {
 		router.configure();
-		entrarView.exibir();
+		router.navigateTo('/join');
 	});
 };
 

@@ -1,6 +1,6 @@
 {
-  "name": "cordovaJokenpo",
-  "version": "1.0.0",
+  "name": "CordovaJokenpo",
+  "version": "0.0.2",
   "authors": [
     "Renan Siravegna <renan.siravegna@gmail.com>"
   ],
@@ -23,6 +23,7 @@
   "dependencies": {
     "requirejs": "~2.1.18",
     "handlebars": "~3.0.3",
-    "requirejs-text": "~2.0.14"
+    "requirejs-text": "~2.0.14",
+    "director": "~1.2.8"
   }
 }

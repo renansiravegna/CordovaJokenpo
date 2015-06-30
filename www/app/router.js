@@ -1,12 +1,24 @@
 define([
+	'app/views/emptyView',
 	'director'
-], function() {
+], function(emptyView) {
+	'use strict';
+
 	var router = {};
+	var _activeView = emptyView;
 
 	router.configure = function() {
 		var routes = {
 			'/join': function() {
-				console.log('/join');
+				require(['app/views/entrar'], function(joinView) {
+					changeView(joinView);
+				});
+			},
+
+			'/lobby': function() {
+				require(['app/views/lobby'], function(lobbyView) {
+					changeView(lobbyView);
+				});
 			}
 		};
 
@@ -18,6 +30,13 @@ define([
 	router.navigateTo = function(route) {
 		window.location = "#" + route;
 	};
+
+	function changeView(view) {
+		_activeView.hide();
+		_activeView = view;
+
+		view.show();
+	}
 
 	function configureEvents() {
 		document.querySelector('#conteudo').addEventListener('click', function(event) {

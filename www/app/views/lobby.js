@@ -9,38 +9,25 @@ define([
 
 	var lobbyView = {};
 
-	lobbyView.exibir = function() {
+	lobbyView.show = function() {
 		ajax.getJSON(configuracoes.url + 'api/jogadoresOnline', function(jogadores) {
 			var template = Handlebars.compile(lobbyTemplate);
 
 			document.getElementById('conteudo').innerHTML = template(jogadores);
 
-			registrarEventos();
+			document.querySelector('ul').addEventListener('click', desafiarJogador);
+			document.querySelector('button[data-js="sair"]').addEventListener('click', sair);
 		});
 	};
 
-	function registrarEventos() {
-		document.querySelector('ul').addEventListener('click', function(evento) {
-			if (evento.target && evento.target.nodeName == "LI")
-				desafiarJogador.apply(evento.target, []);
-		});
+	lobbyView.hide = function() {
+		document.querySelector('ul').removeEventListener('click', desafiarJogador);
+		document.querySelector('button[data-js="sair"]').removeEventListener('click', sair);
+	};
 
-		document.querySelector('button[data-js="atualizar"]').addEventListener('click', function() {
-			lobbyView.exibir();
-		});
+	function desafiarJogador(event) {
+		if (!event.target || event.target.nodeName !== 'LI') return;
 
-		document.querySelector('button[data-js="sair"]').addEventListener('click', function() {
-			require([
-				'app/model/socket',
-				'app/views/entrar'
-			], function(socket, entrarView) {
-				socket.emitir('sair');
-				entrarView.exibir();
-			});
-		});
-	}
-
-	function desafiarJogador() {
 		var token = this.getAttribute('data-token');
 		var apelido = this.getAttribute('data-apelido');
 
@@ -48,6 +35,16 @@ define([
 
 		require(['app/views/jogar'], function(jogarView) {
 			jogarView.exibir(token);
+		});
+	}
+
+	function sair() {
+		require([
+			'app/model/socket',
+			'router'
+		], function(socket, router) {
+			socket.emitir('sair');
+			router.navigateTo('/join');
 		});
 	}
 
