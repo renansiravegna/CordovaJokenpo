@@ -6,10 +6,6 @@ define([
 
 	var entrarView = {};
 
-	socket.escutar('error', function(a, b, c) {
-		console.log(a);
-	});
-
 	entrarView.show = function() {
 		document.getElementById('conteudo').innerHTML = entrarTemplate;
 		document.querySelector('button[data-js="entrar"]').addEventListener('click', enviarNome);

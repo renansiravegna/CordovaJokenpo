@@ -12,9 +12,9 @@ define([
 		socket.escutar('entrada-registrada', callback);
 	};
 
-	jogo.desafiarJogador = function(token, apelido) {
-		jogo.apelidoDoAdversario = apelido;
-		jogo.tokenDoAdversario = token;
+	jogo.desafiarJogador = function(token, callback) {
+		socket.emitir('desafiar-jogador', token);
+		callback();
 	};
 
 	jogo.selecionarJogada = function(jogada) {

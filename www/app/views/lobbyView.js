@@ -29,12 +29,10 @@ define([
 		if (!event.target || event.target.nodeName !== 'LI') return;
 
 		var token = this.getAttribute('data-token');
-		var apelido = this.getAttribute('data-apelido');
 
-		jogo.desafiarJogador(apelido, token);
-
-		require(['app/views/jogar'], function(jogarView) {
-			jogarView.exibir(token);
+		jogo.desafiarJogador(token, function() {
+			var newClassName = event.target.children[1].className.replace('ion-alert', 'ion-help');
+			event.target.children[1].className = newClassName;
 		});
 	}
 

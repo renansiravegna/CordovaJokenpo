@@ -6,11 +6,7 @@ define([
 
 	socket.emitir = function(nomeDoEvento, dadosDoEvento) {
 		criarSocketManager();
-		socketManager.emit(nomeDoEvento, dadosDoEvento, function(a, b, c) {
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		});
+		socketManager.emit(nomeDoEvento, dadosDoEvento);
 	};
 
 	socket.escutar = function(nomeDoEvento, callback) {
@@ -19,7 +15,7 @@ define([
 	}
 
 	function criarSocketManager() {
-		// if (socketManager !== undefined) return;
+		if (socketManager !== undefined) return;
 
 		socketManager = window.io(configuracoes.url);
 		socketManager.connect({
